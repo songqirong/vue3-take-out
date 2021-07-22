@@ -17,12 +17,13 @@ export default defineConfig({
   // 起别名
   resolve: {
     alias: [
-      { find: '@', replacement: 'src' },
-      { find: 'views', replacement: 'src/views' },
-      { find: 'components', replacement: 'src/components' },
-      { find: 'utils', replacement: 'src/utils' },
-      { find: 'api', replacement: 'src/api' },
-      { find: 'store', replacement: 'src/store' },
+      { find: '@', replacement: '/src' },
+      { find: 'views', replacement: '/src/views' },
+      { find: 'components', replacement: '/src/components' },
+      { find: 'utils', replacement: '/src/utils' },
+      { find: 'api', replacement: '/src/api' },
+      { find: 'store', replacement: '/src/store' },
+      { find: 'assets', replacement: '/src/assets' },
     ],
   },
   base: './',
@@ -44,4 +45,5 @@ export default defineConfig({
       },
     },
   },
+
 });

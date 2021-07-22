@@ -17,7 +17,8 @@
       "components/*": ["src/components/*"],
       "views/*": ["src/views/*"],
       "api/*": ["src/api/*"],
-      "store/*": ["src/store/*"]
+      "store/*": ["src/store/*"],
+      "assets/*": ["src/assets/*"]
     } 
   },
   "include": [
