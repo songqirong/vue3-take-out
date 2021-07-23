@@ -2,7 +2,10 @@
   "name": "vue3-take-out",
   "version": "0.0.0",
   "lint-staged": {
-    "*.{ts,vue}": "eslint --fix"
+    "*.{ts,vue}": "eslint --fix",
+    "*.{css,scss}": [
+      "stylelint"
+    ]
   },
   "scripts": {
     "start": "npm run dev",
