@@ -1,13 +1,8 @@
 {
   "name": "vue3-take-out",
   "version": "0.0.0",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{ts,vue}": "eslint"
+    "*.{ts,vue}": "eslint --fix"
   },
   "scripts": {
     "start": "npm run dev",
