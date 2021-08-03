@@ -1,6 +1,6 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { Toast } from 'vant';
-import { no_login } from './base';
+import { no_token } from './base';
 
 // 创建axios实例
 const instance = axios.create({
@@ -13,16 +13,11 @@ const instance = axios.create({
 instance.interceptors.request.use((config) => config, (error) => Promise.reject(error));
 
 // 响应拦截器
-instance.interceptors.response.use((response:AxiosResponse) => {
-  if(/^2/.test(response.status.toString())){
-    return response;
-  } else {
-    return Promise.reject(response.data.msg);
-  }
-}, (error:AxiosError) => {
-  Toast.fail(error.response?.data.err_msg);
+instance.interceptors.response.use((response: AxiosResponse) => response, (error: AxiosError) => {
   if(error.response?.status === 401){
-    no_login();
+    no_token();
+  } else {
+    Toast.fail(error.response?.data.message);
   }
 });
 

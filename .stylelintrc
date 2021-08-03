@@ -14,7 +14,7 @@
       "ignore": ["after-comment"]
     } ],
     "at-rule-no-unknown": null,
-    "max-nesting-depth": [4, {
+    "max-nesting-depth": [10, {
       "ignore": [
         "blockless-at-rules",
         "pseudo-classes"
@@ -31,7 +31,7 @@
       ]
     }],
     "selector-pseudo-class-no-unknown": [true, {
-      "ignorePseudoClasses": [ "global"]
+      "ignorePseudoClasses": [ "global", "deep"]
     }]
   }
 }

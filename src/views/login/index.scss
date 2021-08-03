@@ -1,0 +1,119 @@
+.login-container {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+
+  :deep(.van-tabs) {
+    .color-grey {
+      color: #333 !important;
+    }
+
+    .van-tabs__wrap {
+      height: 80px;
+
+      .van-tabs__nav {
+        background-color: transparent;
+
+        .van-tab {
+          .van-tab__text {
+            font-size: 30px;
+            height: 36px;
+            line-height: 36px;
+          }
+        }
+
+        .van-tabs__line {
+          width: 100px;
+          height: 5px;
+          background-color: #1E9B84;
+        }
+      }
+    }
+
+    .van-tabs__content {
+      margin-top: 20px;
+
+      .van-tab__pane {
+        box-sizing: border-box;
+        width: 90%;
+        margin: 0 auto;
+        padding: 30px 40px;
+        background-color: #fff;
+
+        .van-cell {
+          margin: 10px 0;
+
+          .van-cell__title {
+            font-size: 30px;
+            height: 80px;
+            line-height: 80px;
+            flex: 1;
+          }
+
+          .van-cell__value {
+            flex: 3;
+            font-size: 30px;
+            line-height: 80px;
+
+            .van-field__error-message {
+              font-size: 20px;
+            }
+
+            .van-field__button {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .send-code {
+              height: 60px;
+              border-radius: 10px;
+              width: 150px;
+            }
+          }
+        }
+
+        .submit {
+          height: 80px;
+          margin: 50px auto 0;
+          border-radius: 50px;
+          line-height: 80px;
+          overflow: hidden;
+          font-size: 30px;
+          font-weight: bolder;
+        }
+
+        .tip {
+          font-size: 16px;
+          text-align: left;
+          color: #999;
+          margin-top: 30px;
+        }
+
+        .agree-box {
+          .van-checkbox__icon {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: -5px 5px 0 30px;
+
+            .van-badge__wrapper {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .van-checkbox__label {
+            display: flex;
+            font-size: 24px;
+            line-height: 44px;
+          }
+
+          .agree {
+            border: none;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

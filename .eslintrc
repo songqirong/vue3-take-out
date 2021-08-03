@@ -34,7 +34,7 @@
       "overrides": {
         "colon": {
           "before": false,
-          "after": false
+          "after": true
         },
         "arrow": {
           "before": true,
@@ -59,9 +59,13 @@
     "no-confusing-arrow": [2, {"allowParens": true}], // 禁止在可能与比较操作符相混淆的地方使用箭头函数
     "arrow-spacing": [2, { "before": true, "after": true }],
     "arrow-body-style": [2, "as-needed"], // 要求箭头函数体使用大括号
-    "@typescript-eslint/no-explicit-any": 0
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "no-undef": 0
   },
   "parserOptions": {
     "ecmaVersion": 2021
-  }
+  },
 }

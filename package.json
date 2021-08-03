@@ -1,5 +1,5 @@
 {
-  "name": "vue3-take-out",
+  "name": "vue3-takeout",
   "version": "0.0.0",
   "lint-staged": {
     "*.{ts,vue}": "eslint --fix",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "vant": "^3.1.4",
+    "vant": "^3.1.5",
     "vue": "^3.0.5",
     "vue-router": "^4.0.10",
     "vuex": "^4.0.2"

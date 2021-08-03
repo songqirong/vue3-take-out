@@ -1,0 +1,120 @@
+.shops {
+  --van-list-loading-icon-size: 30px;
+  --van-pull-refresh-head-height: 50px;
+  --van-pull-refresh-head-font-size: 30px;
+  --van-pull-refresh-loading-icon-size: 30px;
+
+  padding-bottom: 100px;
+
+  :deep(.van-loading__text) {
+    font-size: 30px;
+  }
+
+  .shop_header {
+    border-top: 1px solid #e4e4e4;
+    font-size: 36px;
+    color: #999;
+    margin-top: 30px;
+    padding-top: 30px;
+    text-align: left;
+
+    & > i {
+      margin: 0 20px 0 30px;
+    }
+  }
+
+  .shop-item {
+    overflow: hidden;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 20px 20px;
+    margin: 20px 0;
+    border-bottom: 1px solid rgb(216, 212, 212);
+
+    .img_box {
+      width: 100px;
+      height: 100px;
+      margin: 0 20px;
+    }
+
+    .content {
+      font-size: 30px;
+      width: 400px;
+      margin-left: 0;
+
+      & > header {
+        // margin: 0;
+        text-align: left;
+
+        .tag {
+          background-color: rgb(216, 199, 41);
+          font-weight: bolder;
+          font-size: 16px;
+          line-height: 40px;
+          color: black;
+          padding: 0 5px;
+          margin-right: 10px;
+          width: 90px;
+        }
+
+        & > b {
+          font-size: 30px;
+          line-height: 40px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 300px;
+        }
+      }
+
+      & > main {
+        text-align: left;
+
+        .rating {
+          color: rgb(230, 208, 15);
+          font-size: 20px;
+          margin: 0 20px;
+        }
+
+        .num {
+          font-size: 20px;
+          font-style: normal;
+        }
+      }
+
+      & > footer {
+        text-align: left;
+
+        & > span {
+          font-size: 24px;
+        }
+      }
+    }
+
+    & > .desc {
+      float: right;
+      width: 120px;
+      height: 30px;
+
+      & > ul {
+        height: 30px;
+        line-height: 30px;
+
+        & > li {
+          display: inline-block;
+          font-size: 20px;
+          line-height: 30px;
+          color: #666;
+          padding: 0 3px;
+          font-weight: bolder;
+        }
+      }
+
+      & > p {
+        font-size: 20px;
+        color: #1E9B84;
+        font-weight: bolder;
+      }
+    }
+  }
+}

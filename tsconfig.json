@@ -19,8 +19,12 @@
       "api/*": ["src/api/*"],
       "store/*": ["src/store/*"],
       "assets/*": ["src/assets/*"]
-    } 
+    } ,
+    "noImplicitAny": false,
   },
+  "files": [
+    "src/types/index.d.ts"
+  ],
   "include": [
     "src/**/*.ts", 
     "src/**/*.d.ts", 

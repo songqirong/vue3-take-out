@@ -18,6 +18,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@', replacement: '/src' },
+      { find: 'src', replacement: '/src' },
       { find: 'views', replacement: '/src/views' },
       { find: 'components', replacement: '/src/components' },
       { find: 'utils', replacement: '/src/utils' },
@@ -37,13 +38,15 @@ export default defineConfig({
     // // 服务端渲染
     // ssr: false,
     proxy: {
-      'api': {
-        target: 'http://localhost:3333/',
+      '/api': {
+        target: 'http://localhost:8097',
         changeOrigin: true,
         ws: true,
         rewrite: (pathSrc) => pathSrc.replace('/api', ''),
       },
     },
   },
+
+
 
 });

@@ -27,3 +27,11 @@ Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 5. Search and run "Select TypeScript version" -> "Use workspace version"
 
 ### stylelint,eslint 做提交欲检测
+pre-commit 启用(这是在commit之前对代码进行风格检测的命令)
+
+相关文件：
+.eslintrc
+.eslintignore
+.stylelintrc.json (json、js文件可以写注释)
+.stylelintignore
+请先执行 npm run prelint

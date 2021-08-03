@@ -1,0 +1,31 @@
+.not-found {
+  position: relative;
+
+  & > p {
+    font-size: 100px;
+    font-weight: bolder;
+    margin: 100px auto 50px;
+  }
+
+  & > img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  font-size: 80px;
+}
+
+.btn {
+  font-size: 40px;
+  font-weight: bolder;
+  border-radius: 10px;
+  padding: 0 20px;
+  height: 60px;
+  width: 220px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -30px 0 0 -110px;
+}
