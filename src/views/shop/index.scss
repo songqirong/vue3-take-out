@@ -1,0 +1,97 @@
+.shop_container {
+  color: white;
+  text-align: left;
+  line-height: 140px;
+  text-indent: 5px;
+
+  & > :deep(.van-icon) {
+    font-size: 50px;
+    font-weight: bolder;
+  }
+
+  header {
+    height: 140px;
+    font-size: 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+
+    .logo {
+      height: 160px;
+      width: 160px;
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      margin-left: -80px;
+      box-shadow: 3px 3px 5px  #aaa;
+    }
+  }
+
+  main {
+    padding-top: 80px;
+
+    h4 {
+      margin: 0;
+      display: flex;
+      font-size: 40px;
+      font-weight: bolder;
+      line-height: 60px;
+      color: black;
+
+      span {
+        height: 40px;
+        margin: 10px 10px 0 120px;
+      }
+
+      :deep(.van-icon) {
+        font-size: 40px;
+        line-height: 60px;
+        color: rgb(75, 115, 226);
+      }
+    }
+
+    p {
+      font-size: 26px;
+      color: #666;
+      text-align: center;
+      line-height: 30px;
+    }
+  }
+
+  footer {
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+    color: #666;
+    width: 630px;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid #ccc;
+
+    i {
+      width: 400px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-style: normal;
+      margin-right: 20px;
+    }
+
+    span {
+      margin-top: 2px;
+      height: 36px;
+      width: 72px;
+    }
+
+    & > :deep(.van-icon) {
+      width: 32px;
+      height: 32px;
+      font-size: 24px;
+      line-height: 40px;
+      margin-right: 0;
+      font-weight: bolder;
+      margin-left: -8px;
+    }
+  }
+}

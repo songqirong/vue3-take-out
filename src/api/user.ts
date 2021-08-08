@@ -9,8 +9,17 @@ export const fetchGetCode: (payload: any) => Promise<AxiosResponse<any>> = (payl
 
 // 获取用户信息
 export const fetchGetUserInfo: () => Promise<AxiosResponse<any>> = () => axios.get('/users/getUserInfo');
+
+// 解密手机号
+export const fetchAesDecryptPhone: () => Promise<AxiosResponse<any>> = () => axios.get('/users/aesDecryptPhone');
+
+// 退出登录
+export const fetchLogout: () => Promise<AxiosResponse<any>> = () => axios.post('/users/logout');
+
 export default {
   fetchLogin,
   fetchGetCode,
   fetchGetUserInfo,
+  fetchAesDecryptPhone,
+  fetchLogout,
 };

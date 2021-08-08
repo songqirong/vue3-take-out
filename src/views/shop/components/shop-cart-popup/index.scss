@@ -1,0 +1,65 @@
+.shop_cart_popup {
+  :deep(.van-popup) {
+    z-index: 200 !important;
+    bottom: 100px;
+
+    .top {
+      box-sizing: border-box;
+      padding: 0 30px;
+      font-size: 30px;
+      background-color: #f7f7f7;
+      border-bottom: 2px solid #ccc;
+      height: 60px;
+      line-height: 60px;
+      text-align: left;
+
+      span {
+        float: right;
+        line-height: 60px;
+        color: #1E9B84;
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+
+    ul {
+      max-height: 300px;
+      margin: 50px 0;
+      overflow-y: auto;
+
+      li {
+        text-decoration: none;
+        display: flex;
+        font-size: 28px;
+        line-height: 60px;
+        box-sizing: border-box;
+        padding: 0 30px;
+        border-bottom: 1px solid #f7f7f7;
+        text-align: left;
+        height: 60px;
+        width: 100%;
+        position: relative;
+
+        & > span {
+          color: red;
+          margin-left: 100px;
+        }
+
+        p {
+          margin: 0;
+          width: 320px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          font-size: 30px;
+        }
+
+        h4 {
+          position: absolute;
+          right: 20px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

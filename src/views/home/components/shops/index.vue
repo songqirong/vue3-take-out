@@ -19,6 +19,7 @@
           v-for="item in shops"
           :key="item.id"
           class="shop-item"
+          @click="jump_to_page('/shop')"
         >
           <dt class="img_box">
             <van-image
@@ -79,6 +80,7 @@
 <script lang="ts" >
 import { defineComponent, reactive, toRefs } from 'vue';
 import { PullRefresh, List, Icon, Image, Rate } from 'vant';
+import { jump_to_page } from 'utils/base';
 
 export default defineComponent({
   name: 'ShopComponent',
@@ -115,6 +117,7 @@ export default defineComponent({
       ...toRefs(state),
       onLoad,
       onRefresh,
+      jump_to_page,
     };
   },
 });

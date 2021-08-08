@@ -1,0 +1,19 @@
+
+.oprate_num {
+  height: 56px;
+
+  :deep(.van-stepper) {
+    overflow: hidden;
+
+    button {
+      width: 44px;
+      height: 44px;
+    }
+
+    input {
+      height: 44px;
+      line-height: 44px;
+      font-size: 30px;
+    }
+  }
+}

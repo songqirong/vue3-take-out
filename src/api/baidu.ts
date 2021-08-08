@@ -8,7 +8,7 @@ const ak = 'WZqxk8iUPT37VEV11CwqGgjDTGrKwCPl';
 export const getLocation = (latitude, longitude) => axios.get('/conver/parsingPosition', { params: {
   ak,
   output: 'json',
-  coordtype: 'gcj02ll',
+  coordtype: 'wgs84ll',
   location: `${latitude},${longitude}`,
 } });
 

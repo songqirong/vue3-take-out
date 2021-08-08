@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "mockjs": "^1.1.0",
     "vant": "^3.1.5",
     "vue": "^3.0.5",
     "vue-router": "^4.0.10",

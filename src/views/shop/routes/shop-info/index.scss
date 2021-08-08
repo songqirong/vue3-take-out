@@ -1,0 +1,105 @@
+.shop_info_container {
+  .shop_info_header {
+    padding: 30px;
+    box-sizing: border-box;
+
+    h3 {
+      margin: 0;
+      font-size: 40px;
+      text-align: left;
+    }
+
+    .desc {
+      text-align: left;
+
+      & > .tag-box {
+        margin: 0;
+        font-size: 30px;
+        padding-top: 10px;
+        text-align: left;
+        line-height: 50px;
+
+        :deep(.van-tag) {
+          margin-top: 0;
+          font-size: 24px;
+          height: 40px;
+          line-height: 40px;
+          margin-right: 10px;
+        }
+      }
+
+      & > div {
+        font-size: 30px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .seprate {
+    height: 30px;
+    background-color: #f7f7f7;
+  }
+
+  .main {
+    box-sizing: border-box;
+    padding: 30px;
+
+    main {
+      margin-top: 30px;
+
+      ul {
+        li {
+          text-align: left;
+          font-size: 26px;
+          margin-bottom: 10px;
+
+          i {
+            font-style: normal;
+            margin-left: 20px;
+          }
+
+          :deep(.van-tag) {
+            padding: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .shop-live {
+    box-sizing: border-box;
+    padding: 30px;
+
+    .live-box {
+      overflow-x: auto;
+
+      div {
+        display: flex;
+
+        :deep(.van-image) {
+          width: 300px;
+          height: 200px;
+          flex-shrink: 0;
+          margin-right: 20px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .shop-msg {
+    box-sizing: border-box;
+    padding: 30px;
+
+    :deep(.van-cell) {
+      font-size: 24px;
+
+      .van-cell__title {
+        text-align: left;
+      }
+    }
+  }
+}

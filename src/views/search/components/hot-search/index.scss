@@ -1,0 +1,43 @@
+
+.hot_search_container {
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 30px;
+
+  .title {
+    overflow: hidden;
+
+    & > span {
+      display: block;
+      float: left;
+    }
+
+    & > b {
+      // text-decoration: none;
+      color: #999;
+      font-weight: normal;
+      display: block;
+      float: right;
+    }
+  }
+
+  .content {
+    margin-top: 20px;
+    overflow: hidden;
+
+    li {
+      float: left;
+      color: #666;
+      padding: 10px 25px;
+      font-size: 24px;
+      background-color: #e4e3e9;
+      border-radius: 12px;
+      margin: 20px 20px 20px 0;
+    }
+
+    .on {
+      color: red;
+    }
+  }
+}

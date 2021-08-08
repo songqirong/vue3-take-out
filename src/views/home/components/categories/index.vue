@@ -17,6 +17,7 @@
             :key="value._id"
             :icon="value.image_url"
             :text="value.cate_zh"
+            @click="tips"
           />
         </van-grid>
       </van-swipe-item>
@@ -31,6 +32,7 @@
 <script lang="ts" >
 import { defineComponent } from 'vue';
 import { Swipe, SwipeItem, Grid, GridItem } from 'vant';
+import { tips } from 'utils/base';
 
 export default defineComponent({
   name: 'CateComponent',
@@ -45,6 +47,11 @@ export default defineComponent({
       type: Object,
       required: true,
     },
+  },
+  setup(){
+    return {
+      tips,
+    };
   },
 });
 </script>

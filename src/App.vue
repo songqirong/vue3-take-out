@@ -1,82 +1,28 @@
 <template>
   <router-view />
-  <van-tabbar
-    v-show="TabsList.includes(route.path)"
-    route
-    fixed
-    active-color="#1E9B84"
-  >
-    <van-tabbar-item
-      v-for="item in tabs"
-      :key="item.name"
-      replace
-      :to="item.path"
-      :icon="item.icon"
-      :dot="item.dot"
-      :badge="item.badge"
-    >
-      {{ item.name }}
-    </van-tabbar-item>
-  </van-tabbar>
+  <my-tabbar v-show="TabsList.includes(route.path)" />
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive, computed, onMounted } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import { useStore } from 'vuex';
-import { Tabbar, TabbarItem } from 'vant';
+import MyTabbar from 'components/my-tabbar/index.vue';
 import { useRoute } from 'vue-router';
-import { IUser } from 'store/modules/user/type';
 
 export default defineComponent({
   name: 'App',
   components: {
-    [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem,
+    MyTabbar,
   },
   setup() {
+    const store = useStore();
+    // 显示tabbar的路由
     const route = useRoute();
+    const TabsList = ['/home', '/search', '/my', '/cart'];
     onMounted(() => {
       store.dispatch('user/getUserInfo');
     });
-    const store = useStore();
-    // 显示tabbar的路由
-    const TabsList = ['/home', '/search', '/my', '/friends'];
-    const tabs = [
-      {
-        name: '首页',
-        path: '/home',
-        icon: 'home-o',
-        dot: true,
-        badge: undefined,
-      },
-      {
-        name: '查询',
-        path: '/search',
-        icon: 'search',
-        dot: false,
-        badge: undefined,
-      },
-      {
-        name: '联系',
-        path: '/friends',
-        icon: 'friends-o',
-        dot: false,
-        badge: 3,
-      },
-      {
-        name: '个人中心',
-        path: '/my',
-        icon: 'setting-o',
-        dot: false,
-        badge: undefined,
-      },
-    ];
-    const state = reactive({
-
-    });
     return {
-      ...toRefs(state),
-      tabs,
       TabsList,
       route,
     };
@@ -91,65 +37,152 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
-  /* 更改tabbar样式 */
-  .van-tabbar{
-    height: 100px;
-    .van-tabbar-item{
-      font-size: 30px;
-      .van-badge__wrapper{
-        .van-icon{
-          font-size: 40px;
-        }
-        .van-badge{
-          margin-top: 10px;
-          font-size: 16px;
-          padding: 2px 10px;
-        }
-        .van-badge--dot{
-          padding: 10px;
-        }
-      }
-    }
-  }
-
-  /* tabbar全局样式 */
-  .van-nav-bar__content{
-    height: 80px;
-    line-height: 80px;
-    background-color: #1E9B84;
-    .van-nav-bar__title{
-      font-size: 40px;
-      color: white;
-      letter-spacing: 20px;
-    }
-    .van-nav-bar__left, .van-nav-bar__right{
-      font-size: 30px;
-      .van-nav-bar__text{
-        color: white;
-      }
-      .van-icon{
-        color: white;
-        font-size: 30px
-      }
-    }
-  };
-
 }
 body{
   margin: 0;
+  /* 更改toast全局样式 */
+  --van-toast-font-size: 20px;
+  --van-toast-icon-size: 40px;
+  --van-toast-text-min-width: 96px;
+  --van-toast-text-padding: 20px 15px;
+  --van-toast-default-width: 160px;
+  --van-toast-line-height: 36px;
+
+  /* tabbar全局样式 */
+  --van-tabbar-height: 100px;
+  --van-tabbar-item-active-color: #1E9B84;
+  --van-tabbar-item-line-height: 30px;
+  --van-tabbar-item-font-size: 30px;
+  --van-tabbar-item-icon-size: 40px;
+  --van-tabbar-item-icon-margin-bottom: 5px;
+
+  /* 徽标全局样式 */
+  --van-badge-padding: 0px 6px;
+  --van-badge-size: 16px;
+  --van-badge-dot-size: 16px;
+
+  /* navbar全局样式 */
+  --van-nav-bar-height: 80px;
+  --van-nav-bar-background-color: #1E9B84;
+  --van-nav-bar-arrow-size: 40px;
+  --van-nav-bar-icon-color: white;
+  --van-nav-bar-text-color: 30px;
+  --van-nav-bar-title-font-size: 40px;
+  --van-nav-bar-title-text-color: white;
+  --van-line-height-lg: 80px;
+
+  /* dialog全局样式 */
+  --van-dialog-width: 500px;
+  --van-dialog-font-size: 40px;
+  --van-dialog-header-line-height: 50px;
+  --van-dialog-header-padding-top: 52px;
+  --van-dialog-message-padding: 30px;
+  --van-dialog-message-font-size: 30px;
+  --van-dialog-message-line-height: 40px;
+  --van-dialog-button-height: 96px;
+  --van-dialog-round-button-height: 72px;
+  --van-dialog-confirm-button-text-color: #1E9B84;
+
+  /* cell全局样式 */
+  --van-cell-font-size: 30px;
+  --van-cell-line-height: 48px;
+  --van-cell-vertical-padding: 20px;
+  --van-cell-icon-size: 32px;
+  --van-cell-group-title-line-height: 32px;
+
+  /* button全局样式 */
+  --van-button-mini-height: 48px;
+  --van-button-small-height: 64px;
+  --van-button-normal-padding: 0 30px;
+  --van-button-large-height: 100px;
+  --van-button-default-height: 88px;
+  --van-button-default-line-height: 100px;
+  --van-button-normal-font-size: 36px;
+  --van-button-default-font-size: 30px;
+
+  /* tabs全局样式 */
+  --van-tab-font-size: 30px;
+  --van-tab-line-height: 50px;
+  --van-tabs-bottom-bar-color: #1E9B84;
+  --van-tabs-bottom-bar-height: 6px;
+  --van-tabs-bottom-bar-width: 80px;
+  --van-tabs-card-height: 60px;
+  --van-tabs-line-height: 88px;
+
+  /* tag全局样式 */
+  --van-tag-line-height: 24px;
+  --van-tag-medium-padding: 4px 12px;
+  --van-tag-border-radius: 4px;
+  --van-tag-font-size: 24px;
+  --van-tag-padding: 0 6px;
+
+  /* 弹出层全局样式 */
+  --van-popup-round-border-radius: 32px;
+  --van-popup-close-icon-size: 44px;
+
+  /* 分割线全局样式 */
+  --van-divider-line-height: 48px;
+  --van-divider-font-size: 30px;
+  --van-divider-border-color: #1989fa;
+
+  /* sidebar 侧边导航全局样式 */
+  --van-sidebar-width: 160px;
+  --van-sidebar-font-size: 30px;
+  --van-sidebar-line-height: 40px;
+  --van-sidebar-padding: 40px;
+  --van-sidebar-selected-border-width: 8px;
+  --van-sidebar-selected-border-height: 32px;
+  --van-sidebar-selected-text-color: #1E9B84;
+
+  /* indexbar 索引栏全局样式 */
+  --van-index-anchor-line-height: 64px;
+  --van-index-anchor-font-size: 40px;
+
+  /* van-stepper 步进气全局样式 */
+  --van-stepper-input-width: 64px;
+  --van-stepper-input-height: 56px;
+  --van-stepper-input-font-size: 26px;
+  --van-stepper-button-round-theme-color: #1E9B84;
+
+  /* imagePreview全局样式 */
+  --van-image-preview-close-icon-size: 44px;
+  --van-image-preview-index-font-size: 30px;
+
+  /* radio 全局样式 */
+  --van-radio-size: 40px;
+  --van-radio-label-margin: 10px;
+
+  /* checkbox全局样式 */
+  --van-checkbox-size: 40px;
+
+  /* search 全局样式 */
+  --van-search-padding: 20px 10px;
+  --van-search-input-height: 68px;
+  --van-search-label-padding: 0 10px;
+  --van-search-label-font-size: 26px;
+
+  /* empty全局样式 */
+  --van-empty-image-size: 320px;
+  --van-empty-description-padding: 0 120px;
+  --van-empty-bottom-margin-top: 48px;
+  --van-empty-description-font-size: 30px;
+  --van-empty-description-margin-top: 50px;
+
+  /* loading全局样式 */
+  --van-loading-spinner-size: 60px;
+  --van-loading-text-font-size: 50px;
+
+  /* swiper全局样式 */
+  --van-swipe-indicator-size: 12px;
+  --van-swipe-indicator-active-background-color: #1E9B84;
+
+  /* grid全局样式 */
+  --van-grid-item-text-font-size: 16px;
+  --van-grid-item-icon-size: 80px;
+  --van-swipe-indicator-inactive-background-color: #666;
 }
 
-/* 更改toast全局样式 */
-.van-popup{
-  font-size: 20px !important;
-  max-width: 200px !important;
-  width: inherit !important;
-}
-.van-toast--text{
-  max-width: 450px !important;
-  padding: 20px 15px !important;
-}
+
 
 
 </style>

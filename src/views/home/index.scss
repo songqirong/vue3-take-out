@@ -33,9 +33,15 @@
   }
 
   :deep(.van-nav-bar) {
-    background-color: transparent;
+    overflow: hidden;
 
     .van-nav-bar__content {
+      .van-nav-bar__left,
+      .van-nav-bar__right {
+        font-size: 30px;
+        color: white;
+      }
+
       .van-nav-bar__title {
         overflow: inherit;
       }

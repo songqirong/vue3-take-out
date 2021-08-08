@@ -1,6 +1,8 @@
 <template>
   <div class="login-container">
-    <van-nav-bar title="登录" />
+    <van-nav-bar
+      title="登录"
+    />
     <p class="title">
       桔止外卖
     </p>

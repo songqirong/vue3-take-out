@@ -9,7 +9,7 @@
     >
       <template #left>
         <van-icon name="location-o" />
-        <span class="van-nav-bar__text">{{ city }}</span>
+        <span class="van-nav-bar__text">{{ positionInfo?.addressComponent?.city }}</span>
       </template>
       <template #title>
         <div
@@ -28,8 +28,8 @@
   </div>
 </template>
 <script lang="ts" >
-import { defineComponent, computed, onMounted, reactive, toRefs } from 'vue';
-import { Button, NoticeBar, NavBar, Icon, Image } from 'vant';
+import { defineComponent, computed, onMounted } from 'vue';
+import { Button, NoticeBar, NavBar, Icon, Image, Toast } from 'vant';
 import { useStore } from 'vuex';
 import CateComponent from './components/categories/index.vue';
 import ShopComponent from './components/shops/index.vue';
@@ -50,34 +50,14 @@ export default defineComponent({
     const categories = computed(() => store.state.home.categories);
     const shops = computed(() => store.state.home.shops);
     const userInfo = computed(() => store.state.user.userInfo);
+    const positionInfo = computed(() => store.state.home.positionInfo);
     const handleClick = () => {
       store.commit('home/add');
     };
 
-    const state = reactive({
-      city: '深圳',
-    });
-
     onMounted(() => {
-      // if(navigator.geolocation){
-      //   navigator.geolocation.getCurrentPosition(async function(position){
-      //     //经度
-      //     const longitude = position.coords.longitude;
-      //     //纬度
-      //     const latitude = position.coords.latitude;
-
-      //     const res = await http.getLocation(latitude, longitude);
-      //     state.city = res.data.data.addressComponent.city;
-      //   }), function(error){
-      //     console.log(error, 'err');
-      //   }, {
-      //     enableHighAccuracy: true,
-      //     maximumAge: 75000,
-      //     timeout: 30000,
-      //   };
-      // } else {
-      //   Toast('当前浏览器不支持定位');
-      // }
+      // 获取坐标并反解析地理位置
+      store.dispatch('home/fetchPositionInfo');
       // vuex里有数据则不需要请求
       categories.value.length === 0 && store.dispatch('home/fetchAllGories');
       shops.value.length === 0 && store.dispatch('home/fetchShops');
@@ -89,7 +69,7 @@ export default defineComponent({
       categories,
       shops,
       userInfo,
-      ...toRefs(state),
+      positionInfo,
     };
 
   },

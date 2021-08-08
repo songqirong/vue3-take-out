@@ -1,0 +1,36 @@
+.preferential_popup {
+  .main {
+    padding: 50px;
+
+    header {
+      :deep(.van-divider) {
+        font-size: 40px;
+        font-weight: bolder;
+      }
+    }
+
+    main {
+      margin-top: 30px;
+
+      ul {
+        overflow-y: auto;
+        height: 350px;
+
+        li {
+          text-align: left;
+          font-size: 26px;
+          margin-bottom: 10px;
+
+          i {
+            font-style: normal;
+            margin-left: 20px;
+          }
+
+          :deep(.van-tag) {
+            padding: 6px;
+          }
+        }
+      }
+    }
+  }
+}

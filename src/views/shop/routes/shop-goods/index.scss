@@ -1,0 +1,137 @@
+.shop_goods_container {
+  height: calc(100vh - 494px);
+  position: relative;
+
+  nav {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 100px;
+    overflow-y: auto;
+
+    :deep(.van-sidebar) {
+      width: 100%;
+
+      .title-icon {
+        & > .van-icon {
+          position: relative;
+          top: 3px;
+        }
+      }
+    }
+  }
+
+  main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding-bottom: 100px;
+    left: 200px;
+    right: 0;
+    overflow-y: auto;
+
+    div {
+      overflow: hidden;
+      position: relative;
+
+      :deep(.van-index-bar) {
+        font-size: 30px;
+
+        .van-index-bar__sidebar {
+          display: none;
+        }
+
+        .item {
+          .van-index-anchor {
+            text-align: left;
+            padding-left: 30px;
+            color: #1E9B84;
+            background-color: #f7f7f7;
+          }
+
+          ul {
+            margin-top: 24px;
+
+            li {
+              display: flex;
+              border-bottom: 1px solid #f7f7f7;
+              height: 180px;
+              padding: 20px 50px;
+
+              div {
+                &:nth-child(1) {
+                  flex: 1;
+                }
+
+                &:nth-child(2) {
+                  flex: 3;
+                  padding-left: 20px;
+                  width: 300px;
+                }
+
+                text-align: left;
+
+                h3 {
+                  margin: 0;
+                  font-size: 30px;
+                }
+
+                h4 {
+                  margin: 0;
+                  font-size: 26px;
+                  color: #666;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                }
+
+                p {
+                  margin: 0;
+                  font-size: 24px;
+                  color: #999;
+                }
+
+                & > div {
+                  margin-top: 5px;
+                  display: flex;
+                  width: 100%;
+                  position: relative;
+                  padding-bottom: 100px;
+
+                  span {
+                    color: red;
+                    font-size: 24px;
+                  }
+
+                  .van-stepper {
+                    position: absolute;
+                    left: 120px;
+
+                    button {
+                      width: 44px;
+                      height: 44px;
+                    }
+
+                    input {
+                      height: 44px;
+                      line-height: 44px;
+                      font-size: 30px;
+                    }
+                  }
+
+                  .van-icon {
+                    position: absolute;
+                    left: 200px;
+                    font-size: 50px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

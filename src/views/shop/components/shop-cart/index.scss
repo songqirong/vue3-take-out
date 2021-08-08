@@ -1,0 +1,52 @@
+.shop_cart {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  height: 100px;
+  background-color: #141F2D;
+  width: 100%;
+
+  & > div {
+    position: relative;
+    display: flex;
+
+    .cart {
+      background-color: #303A47;
+      height: 100px;
+      width: 100px;
+      margin: -30px 20px 0 30px;
+      border-radius: 50px;
+
+      :deep(.van-icon) {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+    }
+
+    .dollar {
+      color: white;
+      font-size: 30px;
+      text-align: left;
+      line-height: 50px;
+      font-weight: bolder;
+
+      p {
+        margin: 0;
+        font-size: 20px;
+        color: #f7f7f7d0;
+        line-height: 40px;
+      }
+    }
+
+    :deep(.van-button) {
+      height: 100px;
+      line-height: 100px;
+      position: absolute;
+      right: 0;
+      min-width: 290px;
+      font-size: 30px;
+    }
+  }
+}

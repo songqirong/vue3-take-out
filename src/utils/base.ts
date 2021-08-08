@@ -1,6 +1,7 @@
 import router from 'src/routes';
 import store from 'store/index';
 import { initState } from 'store/modules/user/state';
+import { Toast } from 'vant';
 
 // 跳转页面
 export const jump_to_page = (obj: { name?: string; path?: string; params?: Record<string, any>; query?: Record<string, any>; state?: Record<string, any>} | string) => {
@@ -11,7 +12,7 @@ export const jump_to_page = (obj: { name?: string; path?: string; params?: Recor
 // 跳转至登录页
 export const go_login: () => void = () => {
   router.push({
-    name: 'Login',
+    path: '/login',
   });
 };
 
@@ -52,3 +53,8 @@ export const findObjIdxFromArr = (arr: any[], obj: any) => arr.findIndex((item) 
 
 // 深拷贝
 export const clone_deep = (obj: any) => JSON.parse(JSON.stringify(obj));
+
+// 暂未开放提示
+export const tips = () => {
+  Toast('暂未开放，敬请期待~');
+};
