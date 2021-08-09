@@ -8,9 +8,9 @@ git push
 
 
 # 打包
-# npm run build
+npm run build
 
 # 压缩
-# zip -rm dist.zip dist
+zip -rm dist.zip dist
 
 

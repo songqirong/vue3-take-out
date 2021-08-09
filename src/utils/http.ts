@@ -4,7 +4,7 @@ import { no_token } from './base';
 
 // 创建axios实例
 const instance = axios.create({
-  baseURL: 'http://localhost:3001/api', // 请求头路径
+  baseURL: 'https://takeoutapi.persion.cn', // 请求头路径
   withCredentials: true, // 允许携带cookie
   timeout: 5000, //设置超时
 });

@@ -37,13 +37,13 @@ export default defineConfig({
     // https: false,
     // // 服务端渲染
     // ssr: false,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8097',
-        changeOrigin: true,
-        ws: true,
-        rewrite: (pathSrc) => pathSrc.replace('/api', ''),
-      },
-    },
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:8097',
+    //     changeOrigin: true,
+    //     ws: true,
+    //     rewrite: (pathSrc) => pathSrc.replace('/api', ''),
+    //   },
+    // },
   },
 });
