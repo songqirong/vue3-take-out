@@ -30,8 +30,8 @@
           @change="indexChange"
         >
           <div
-            v-for="(item, index) in goods"
-            :key="index"
+            v-for="item in goods"
+            :key="item._id"
             class="item"
           >
             <van-index-anchor :index="item.name">
@@ -39,8 +39,8 @@
             </van-index-anchor>
             <ul>
               <li
-                v-for="(food, idx) in item.foods"
-                :key="idx"
+                v-for="food in item.foods"
+                :key="food._id"
               >
                 <div>
                   <van-image

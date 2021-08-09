@@ -17,8 +17,8 @@
         <main>
           <ul>
             <li
-              v-for="(item, index) in info.supports"
-              :key="index"
+              v-for="item in info.supports"
+              :key="item._id"
             >
               <van-tag
                 :type="typeMap[item.name]"
