@@ -1,11 +1,17 @@
 
 .search_container {
   :deep(.van-search__content) {
-    line-height: 68px;
+    .van-search__label {
+      margin-top: 5px;
+    }
 
     .van-icon {
       font-size: 36px;
-      line-height: 54px;
+      line-height: 68px;
+    }
+
+    .van-field__control {
+      line-height: 68px;
     }
   }
 
