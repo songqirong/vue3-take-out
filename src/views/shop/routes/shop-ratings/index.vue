@@ -6,9 +6,9 @@
   </div>
 </template>
 <script lang="ts" >
-import { computed, defineComponent, onMounted } from 'vue';
-import MyRate from '../../components/my-rate/index.vue';
-import Comments from '../../components/comments/index.vue';
+import { defineComponent, onMounted } from 'vue';
+import MyRate from 'src/views/shop/components/my-rate/index.vue';
+import Comments from 'src/views/shop/components/comments/index.vue';
 import { useStore } from 'vuex';
 export default defineComponent({
   name: 'ShopRatings',
@@ -18,8 +18,6 @@ export default defineComponent({
   },
   setup(){
     const store = useStore();
-    const ratings = computed(() => store.state.shop.ratings);
-    console.log(ratings, 'ratings');
     onMounted(async() => {
       store.dispatch('shop/fetchShopRatings');
     });

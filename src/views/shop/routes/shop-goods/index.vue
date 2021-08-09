@@ -85,8 +85,8 @@
 import { defineComponent, computed, onMounted, reactive, toRefs, ref, watch } from 'vue';
 import { Badge, Icon, Image, ImagePreview, IndexAnchor, IndexBar, Sidebar, SidebarItem, Stepper } from 'vant';
 import { useStore } from 'vuex';
-import ShopCart from '../../components/shop-cart/index.vue';
-import OprateNum from '../../components/oprate-num/index.vue';
+import ShopCart from 'src/views/shop/components/shop-cart/index.vue';
+import OprateNum from 'src/views/shop/components/oprate-num/index.vue';
 type IState = {
   active: number;
   indexList: string[];

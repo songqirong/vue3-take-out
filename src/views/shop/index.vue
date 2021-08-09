@@ -1,6 +1,6 @@
 <template>
   <section class="shop_container">
-    <header :style="{ backgroundImage: `url(${info.bgImg})` }">
+    <header :style="{ backgroundImage: `url(${info.bgImg || 'https://fuss10.elemecdn.com/f/5c/ead54394c3de198d3e6d3e9111bbfpng.png)'}` }">
       <van-icon
         name="arrow-left"
         @click="go_back"
@@ -88,7 +88,6 @@ export default defineComponent({
       preShow: false,
     });
     const info = computed(() => store.state.shop.info);
-    console.log(info, 'info');
     const tabList = [
       { path: '/shop/goods', title: '点餐' },
       { path: '/shop/ratings', title: '评价' },

@@ -160,6 +160,9 @@ body{
   --van-search-input-height: 68px;
   --van-search-label-padding: 0 10px;
   --van-search-label-font-size: 26px;
+  --van-search-background-color: #1E9B84;
+  --van-search-content-background-color: #f7f7f7;
+  --van-search-action-font-size: 26px;
 
   /* empty全局样式 */
   --van-empty-image-size: 320px;

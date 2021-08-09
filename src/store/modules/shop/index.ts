@@ -78,7 +78,6 @@ export default {
     },
     async fetchSearchShops({ commit }, params){
       const res = await fetchSerachShop(params);
-      console.log('res', res);
       commit('updateSearchShop', res.data.data);
     },
   },

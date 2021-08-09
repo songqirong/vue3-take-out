@@ -27,14 +27,19 @@ export default defineConfig({
       { find: 'assets', replacement: '/src/assets' },
     ],
   },
-  base: './',
+  base: '/',
+  // publicDir: './public',
   server: {
     host: 'localhost',
     port: 3001,
+    // fs: {
+    //   // strict: false,
+    //   allow: ['..', '.'],
+    // },
     // // 是否自动在浏览器打开
     // open: true,
     // // 是否开启 https
-    // https: false,
+    https: true,
     // // 服务端渲染
     // ssr: false,
     // proxy: {
@@ -46,4 +51,9 @@ export default defineConfig({
     //   },
     // },
   },
+  // build: {
+  //   // target: 'es2015',
+  //   minify: 'esbuild',
+  //   assetsDir: '',
+  // },
 });

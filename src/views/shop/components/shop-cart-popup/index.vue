@@ -33,7 +33,7 @@
 import { computed, defineComponent, reactive, toRefs, watch } from 'vue';
 import { Popup } from 'vant';
 import { useStore } from 'vuex';
-import OprateNum from '../oprate-num/index.vue';
+import OprateNum from 'src/views/shop/components/oprate-num/index.vue';
 interface IState{
   isShow: boolean;
 }

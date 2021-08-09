@@ -1,7 +1,12 @@
 
 .search_container {
-  :deep(.van-icon-clear) {
-    font-size: 36px;
+  :deep(.van-search__content) {
+    line-height: 68px;
+
+    .van-icon {
+      font-size: 36px;
+      line-height: 54px;
+    }
   }
 
   .search_shop {

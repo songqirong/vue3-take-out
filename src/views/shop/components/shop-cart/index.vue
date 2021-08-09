@@ -26,7 +26,7 @@
 import { Badge, Button, Icon, Popup, Toast } from 'vant';
 import { defineComponent, computed, reactive, toRefs } from 'vue';
 import { useStore } from 'vuex';
-import ShopCartPopup from '../shop-cart-popup/index.vue';
+import ShopCartPopup from 'src/views/shop/components/shop-cart-popup/index.vue';
 export default defineComponent({
   name: 'ShopCart',
   components: {

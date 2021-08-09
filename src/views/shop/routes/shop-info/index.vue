@@ -70,7 +70,7 @@
   </section>
 </template>
 <script lang="ts" >
-import { defineComponent, computed, onMounted, reactive, toRefs } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { Cell, CellGroup, Divider, Image, Tag } from 'vant';
 import { useStore } from 'vuex';
 enum typeMap{
