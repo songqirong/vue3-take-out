@@ -25,22 +25,22 @@ export default {
     updateRatings(state, payload){
       state.ratings = payload;
     },
-    updateList(state, { type, name, price, cate }){
+    updateList(state, { type, name, price, cate, id }){
       if(type === 'add'){
         state.totalBuy++;
         state.totalPrice += price;
         // 证明购物车里已有该商品存在
         if(Object.prototype.hasOwnProperty.call(state.buyList, name )){
-          state.buyList = { ...state.buyList, [name]: { count: state.buyList[name].count + 1, price, cate } };
+          state.buyList = { ...state.buyList, [name]: { count: state.buyList[name].count + 1, price, cate, id } };
         } else {
-          state.buyList = { ...state.buyList, [name]: { count: 1, price, cate } };
+          state.buyList = { ...state.buyList, [name]: { count: 1, price, cate, id } };
         }
       } else {
         state.totalBuy--;
         state.totalPrice -= price;
         // 大于1就减少，小于1就删除
         if(state.buyList[name].count > 1){
-          state.buyList = { ...state.buyList, [name]: { count: state.buyList[name].count - 1, price, cate } };
+          state.buyList = { ...state.buyList, [name]: { count: state.buyList[name].count - 1, price, cate, id } };
         } else {
           const newBuyList = clone_deep(state.buyList);
           delete newBuyList[name];

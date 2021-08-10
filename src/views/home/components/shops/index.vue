@@ -31,10 +31,13 @@
           </dt>
           <dd class="content">
             <header class="title">
-              <span
+              <van-tag
                 v-show="item.is_premium"
-                class="tag"
-              >品牌</span>
+                color="#FFEA0D"
+                text-color="#715000"
+              >
+                品牌
+              </van-tag>
               <b>{{ item.name }}</b>
             </header>
             <main class="main">
@@ -79,8 +82,9 @@
 </template>
 <script lang="ts" >
 import { defineComponent, reactive, toRefs } from 'vue';
-import { PullRefresh, List, Icon, Image, Rate } from 'vant';
+import { PullRefresh, List, Icon, Image, Rate, Tag } from 'vant';
 import { jump_to_page } from 'utils/base';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'ShopComponent',
@@ -90,6 +94,7 @@ export default defineComponent({
     [Icon.name]: Icon,
     [Image.name]: Image,
     [Rate.name]: Rate,
+    [Tag.name]: Tag,
   },
   props: {
     shops: {
@@ -98,6 +103,7 @@ export default defineComponent({
     },
   },
   setup(){
+    const store = useStore();
     const state = reactive({
       refreshing: false, // 是否处于刷新中
       loading: false, // 是否处于加载中
@@ -106,12 +112,20 @@ export default defineComponent({
 
     // 触底加载
     const onLoad = () => {
-      console.log('触底了');
+      if(state.refreshing){
+        // 清除数据
+        store.commit('home/updateShops', []);
+      }
+      store.dispatch('home/fetchShops');
+      state.loading = false;
+      state.finished = true;
     };
 
     // 下拉刷新
     const onRefresh = () => {
-      console.log('下拉刷新了');
+      state.loading = true;
+      state.finished = false;
+      onLoad();
     };
     return {
       ...toRefs(state),

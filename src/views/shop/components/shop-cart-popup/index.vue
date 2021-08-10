@@ -13,11 +13,12 @@
       </div>
       <ul>
         <li
-          v-for="(item, index) in buyList"
-          :key="index"
+          v-for="item in buyList"
+          :key="item.id"
         >
           <p>{{ item.name }}</p><span>¥{{ item.price }}</span><h4>
             <oprate-num
+              :id="item.id"
               :price="item.price"
               :name="item.name"
               :cate="item.cate"

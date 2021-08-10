@@ -58,8 +58,9 @@ body{
 
   /* 徽标全局样式 */
   --van-badge-padding: 0px 6px;
-  --van-badge-size: 16px;
+  --van-badge-size: 32px;
   --van-badge-dot-size: 16px;
+  --van-badge-font-size: 24px;
 
   /* navbar全局样式 */
   --van-nav-bar-height: 80px;
@@ -99,6 +100,9 @@ body{
   --van-button-default-line-height: 100px;
   --van-button-normal-font-size: 36px;
   --van-button-default-font-size: 30px;
+  --van-button-small-font-size: 26px;
+  --van-font-size-md: 30px;
+
 
   /* tabs全局样式 */
   --van-tab-font-size: 30px;

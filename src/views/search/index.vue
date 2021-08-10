@@ -33,6 +33,7 @@
       <li
         v-for="item in searchShop"
         :key="item.id"
+        @click="jump_to_page('/shop')"
       >
         <dl>
           <dt>
@@ -73,6 +74,7 @@ import { computed, defineComponent, reactive, toRefs, watch } from 'vue';
 import { Empty, Image, Loading, NavBar, Search, Toast } from 'vant';
 import HotSearch from './components/hot-search/index.vue';
 import { useStore } from 'vuex';
+import { jump_to_page } from 'utils/base';
 interface IState{
   keyword: string;
   isNone: boolean;
@@ -136,6 +138,7 @@ export default defineComponent({
       onSearch,
       onClear,
       clickSearch,
+      jump_to_page,
     };
 
   },

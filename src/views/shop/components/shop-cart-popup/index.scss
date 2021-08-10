@@ -45,7 +45,7 @@
           margin-left: 100px;
         }
 
-        p {
+        & > p {
           margin: 0;
           width: 320px;
           text-overflow: ellipsis;
@@ -54,10 +54,10 @@
           font-size: 30px;
         }
 
-        h4 {
+        & > h4 {
           position: absolute;
           right: 20px;
-          margin: 0;
+          margin: 5px 0 0;
         }
       }
     }

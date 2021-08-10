@@ -5,7 +5,9 @@
       fixed
     />
     <header>
-      <van-image :src="userInfo.user_avatar || img" />
+      <div class="img-box">
+        <van-image :src="userInfo.user_avatar || img" />
+      </div>
       <div
         v-if="userInfo._id"
         class="desc"

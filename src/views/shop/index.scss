@@ -44,7 +44,7 @@
         margin: 10px 10px 0 120px;
       }
 
-      :deep(.van-icon) {
+      & > :deep(.van-icon) {
         font-size: 40px;
         line-height: 60px;
         color: rgb(75, 115, 226);

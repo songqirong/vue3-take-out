@@ -22,7 +22,7 @@
       </van-sidebar>
     </nav>
     <main>
-      <div>
+      <div class="index-bar-box">
         <van-index-bar
           ref="indexBar"
           :index-list="indexList"
@@ -55,18 +55,23 @@
                   <p>月售{{ food.sellCount }}份  好评率{{ food.rating }}%</p>
                   <div>
                     <span>¥{{ food.price }}</span>
-                    <oprate-num
+                    <div
                       v-if="Object.prototype.hasOwnProperty.call(buyList, food.name)"
-                      :cate="item.name"
-                      :name="food.name"
-                      :price="food.price"
-                      :value="buyList[food.name].count"
-                    />
+                      class="oprate"
+                    >
+                      <oprate-num
+                        :id="food._id"
+                        :cate="item.name"
+                        :name="food.name"
+                        :price="food.price"
+                        :value="buyList[food.name].count"
+                      />
+                    </div>
                     <van-icon
                       v-else
                       name="add"
                       color="#1E9B84"
-                      @click="changeNum('add', food.name, food.price, item.name)"
+                      @click="changeNum('add', food.name, food.price, item.name, food._id)"
                     />
                   </div>
                 </div>
@@ -129,8 +134,8 @@ export default defineComponent({
     };
 
     // 点击stepper事件
-    const changeNum = (type: 'reduce' | 'add', name: string, price: number, cate: string) => {
-      store.commit('shop/updateList', { type, name, price, cate });
+    const changeNum = (type: 'reduce' | 'add', name: string, price: number, cate: string, id: string) => {
+      store.commit('shop/updateList', { type, name, price, cate, id });
     };
 
     // 预览图片

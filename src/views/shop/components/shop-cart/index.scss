@@ -17,11 +17,16 @@
       margin: -30px 20px 0 30px;
       border-radius: 50px;
 
-      :deep(.van-icon) {
+      & > :deep(.van-icon) {
         width: 100px;
         height: 100px;
         text-align: center;
         line-height: 100px;
+
+        .van-badge {
+          top: 15px;
+          right: 20px;
+        }
       }
     }
 
