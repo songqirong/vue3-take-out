@@ -50,14 +50,12 @@
           </van-field>
           <van-checkbox
             v-model="agree"
-            class="agree-box"
             shape="square"
           >
             我同意桔止外卖的<van-button
               type="primary"
               plain
-              to="/useragree"
-              class="agree"
+              to="/user-agree"
             >
               《用户服务协议》
             </van-button>
@@ -120,7 +118,7 @@
               <img
                 ref="imgRef"
                 class="captcha-img"
-                src="http://localhost:8097/users/getCaptcha"
+                src="https://takeoutapi.persion.cn/users/getCaptcha"
                 alt="captcha"
                 @click="changeCaptcha"
               >
@@ -229,7 +227,7 @@ export default defineComponent({
     };
 
     const changeCaptcha = (e: any) => {
-      e.target.src = `http://localhost:8097/users/getCaptcha?${Math.random()}`;
+      e.target.src = `https://takeoutapi.persion.cn/users/getCaptcha?${Math.random()}`;
     };
     return {
       ...toRefs(state),

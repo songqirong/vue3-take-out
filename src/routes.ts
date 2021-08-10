@@ -14,6 +14,7 @@ const router = createRouter({
       { path: '/shop/info', name: 'ShopInfo', component: () => import('./views/shop/routes/shop-info/index.vue') },
     ] },
     { path: '/not-found', name: 'NotFound', component: () => import('./views/not-found/index.vue') },
+    { path: '/user-agree', name: 'UserAgree', component: () => import('./views/user-agree/index.vue') },
     { path: '/', redirect: '/home' },
   ],
 });

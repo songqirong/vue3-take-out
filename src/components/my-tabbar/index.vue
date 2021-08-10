@@ -31,7 +31,7 @@ export default defineComponent({
         name: '首页',
         path: '/home',
         icon: 'home-o',
-        dot: true,
+        dot: false,
         badge: undefined,
       },
       {
@@ -42,17 +42,17 @@ export default defineComponent({
         badge: undefined,
       },
       {
-        name: '联系',
+        name: '订单',
         path: '/cart',
         icon: 'shopping-cart-o',
         dot: false,
-        badge: 3,
+        badge: undefined,
       },
       {
         name: '个人中心',
         path: '/my',
         icon: 'setting-o',
-        dot: false,
+        dot: true,
         badge: undefined,
       },
     ];

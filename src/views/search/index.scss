@@ -1,17 +1,29 @@
 
 .search_container {
-  :deep(.van-search__content) {
-    .van-search__label {
-      margin-top: 5px;
+  :deep(.van-search) {
+    .van-search__content {
+      .van-search__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .van-icon {
+        font-size: 36px;
+        line-height: 48px;
+      }
+
+      .van-field__control {
+        line-height: 48px;
+      }
     }
 
-    .van-icon {
-      font-size: 36px;
-      line-height: 68px;
-    }
+    .van-search__action {
+      background-color: #1E9B84;
 
-    .van-field__control {
-      line-height: 68px;
+      &:active {
+        background-color: #21ac92;
+      }
     }
   }
 
@@ -58,5 +70,9 @@
         }
       }
     }
+  }
+
+  :deep(.van-loading) {
+    padding-top: 50px;
   }
 }

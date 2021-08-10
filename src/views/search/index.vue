@@ -6,14 +6,23 @@
     <van-search
       v-model="keyword"
       show-action
-      label="店铺"
       placeholder="请输入搜索关键词"
       @search="onSearch"
       @clear="onClear"
     >
       <template #action>
-        <div @click="onSearch">
+        <div
+          class="search_action"
+          @click="onSearch"
+        >
           搜索
+        </div>
+      </template>
+      <template #label>
+        <div
+          class="label"
+        >
+          店铺
         </div>
       </template>
     </van-search>
@@ -93,13 +102,13 @@ export default defineComponent({
 
     // 搜索事件
     const onSearch = () => {
-      state.loading = true;
-      state.hotShow = false;
       if(state.keyword.trim() === ''){
         Toast('请先输入关键词～');
-        state.loading = false;
         return;
       }
+      state.isNone = false;
+      state.loading = true;
+      state.hotShow = false;
       store.dispatch('shop/fetchSearchShops', { keyword: state.keyword, ...positionInfo.value.location });
     };
 

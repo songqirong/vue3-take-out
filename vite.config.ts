@@ -39,7 +39,7 @@ export default defineConfig({
     // // 是否自动在浏览器打开
     // open: true,
     // // 是否开启 https
-    https: true,
+    // https: true,
     // // 服务端渲染
     // ssr: false,
     // proxy: {

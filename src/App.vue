@@ -156,14 +156,14 @@ body{
   --van-checkbox-size: 40px;
 
   /* search 全局样式 */
-  --van-search-padding: 10px 5px;
-  --van-search-input-height: 68px;
-  --van-search-label-padding: 0 10px;
+  --van-search-padding: 10px;
+  --van-search-input-height: 48px;
+  --van-search-label-padding: 0 20px;
   --van-search-label-font-size: 26px;
+  --van-search-action-padding: 5px 30px;
   --van-search-background-color: #1E9B84;
   --van-search-content-background-color: #f7f7f7;
   --van-search-action-font-size: 26px;
-  --van-search-action-text-color: #333;
 
   /* empty全局样式 */
   --van-empty-image-size: 320px;

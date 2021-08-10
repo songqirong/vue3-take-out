@@ -3,6 +3,8 @@
  */
 import Mock from 'mockjs';
 import data from './shop/index.json';
+// 解决mockjs影响axios的cookie传递问题
+Mock.XHR.prototype.withCredentials = true;
 
 // 返回goods的接口
 Mock.mock('/shop/goods', { error_code: 'NONE', message: '获取成功', data: data.goods });

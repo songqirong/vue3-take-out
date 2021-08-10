@@ -89,16 +89,25 @@
           margin-top: 30px;
         }
 
-        .agree-box {
+        .van-checkbox {
+          display: flex;
+          margin-top: 15px;
+
           .van-checkbox__icon {
-            display: block;
             width: 24px;
             height: 24px;
             margin: -5px 5px 0 30px;
 
             .van-badge__wrapper {
-              width: 24px;
-              height: 24px;
+              width: 30px;
+              height: 30px;
+              margin-top: -2px;
+
+              &::before {
+                position: relative;
+                top: -5px;
+                left: -2px;
+              }
             }
           }
 
@@ -108,9 +117,12 @@
             line-height: 44px;
           }
 
-          .agree {
-            border: none;
+          .van-button {
+            font-size: 24px !important;
+            line-height: 44px;
             padding: 0;
+            border: none;
+            height: 44px;
           }
         }
       }
