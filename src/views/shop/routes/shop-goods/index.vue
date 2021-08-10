@@ -46,6 +46,7 @@
                   <van-image
                     lazy-load
                     :src="food.image"
+                    :alt="food.name"
                     @click="preViewImage(food.images)"
                   />
                 </div>
