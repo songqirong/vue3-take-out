@@ -61,6 +61,7 @@ body{
   --van-badge-size: 32px;
   --van-badge-dot-size: 16px;
   --van-badge-font-size: 24px;
+  --van-badge-border-width: 0;
 
   /* navbar全局样式 */
   --van-nav-bar-height: 80px;
