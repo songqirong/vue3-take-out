@@ -61,12 +61,17 @@
             & > li {
               display: flex;
               border-bottom: 1px solid #f7f7f7;
-              height: 180px;
-              padding: 20px 50px;
+              height: 160px;
+              padding: 20px 50px 0;
 
               & > div {
                 &:nth-child(1) {
                   flex: 1;
+
+                  & > .van-image {
+                    height: 100px;
+                    width: 100px;
+                  }
                 }
 
                 &:nth-child(2) {
