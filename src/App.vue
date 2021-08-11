@@ -193,6 +193,16 @@ body{
   --van-grid-item-text-font-size: 16px;
   --van-grid-item-icon-size: 80px;
   --van-swipe-indicator-inactive-background-color: #666;
+
+  /* list全局样式 */
+  --van-list-loading-icon-size: 32px;
+  --van-pull-refresh-head-height: 50px;
+  --van-pull-refresh-head-font-size: 30px;
+  --van-pull-refresh-loading-icon-size: 30px;
+  --van-list-text-font-size: 30px;
+  --van-list-text-line-height: 60px;
+  --van-loading-text-font-size: 30px;
+
 }
 
 

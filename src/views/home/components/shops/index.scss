@@ -1,14 +1,5 @@
 .shops {
-  --van-list-loading-icon-size: 30px;
-  --van-pull-refresh-head-height: 50px;
-  --van-pull-refresh-head-font-size: 30px;
-  --van-pull-refresh-loading-icon-size: 30px;
-
   padding-bottom: 100px;
-
-  :deep(.van-loading__text) {
-    font-size: 30px;
-  }
 
   .shop_header {
     border-top: 1px solid #e4e4e4;
