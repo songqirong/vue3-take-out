@@ -54,7 +54,6 @@ export default defineComponent({
     const handleClick = () => {
       store.commit('home/add');
     };
-
     onMounted(() => {
       // 获取坐标并反解析地理位置
       store.dispatch('home/fetchPositionInfo');

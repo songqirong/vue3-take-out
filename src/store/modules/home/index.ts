@@ -30,7 +30,7 @@ export default {
       state.categories = arr;
     },
     updateShops(state, payload){
-      state.shops = payload;
+      state.shops = [ ...state.shops, ...payload ];
     },
     updatePositionInfo(state, payload){
       state.positionInfo = payload;

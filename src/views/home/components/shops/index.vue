@@ -23,7 +23,7 @@
         >
           <dt class="img_box">
             <van-image
-              src="https://static.persion.cn/images/categories/pizza-burgers.png"
+              :src="item.image"
               fit="cover"
               lazy-load
               :alt="item.name"
@@ -50,7 +50,7 @@
               <i class="num">{{ `月售${item.recent_order_num}单` }}</i>
             </main>
             <footer class="desc">
-              <span>{{ `${item.float_minimum_order_amount}起配送 / 配送费约¥${item.float_delivery_fee}` }}</span>
+              <span>{{ `${item.float_minimum_order_amount}元起配送 / 配送费约¥${item.float_delivery_fee}` }}</span>
             </footer>
           </dd>
           <div class="desc">
@@ -58,11 +58,12 @@
               <li
                 v-for="value in item.supports"
                 :key="value.id"
+                :style="{color: value.icon_color}"
               >
                 {{ value.icon_name }}
               </li>
             </ul>
-            <p>{{ item.delivery_mode.text }}</p>
+            <p>{{ item.delivery_mode }}</p>
           </div>
         </dl>
       </van-list>
@@ -81,7 +82,7 @@
   </section>
 </template>
 <script lang="ts" >
-import { defineComponent, reactive, toRefs } from 'vue';
+import { defineComponent, reactive, toRefs, watch } from 'vue';
 import { PullRefresh, List, Icon, Image, Rate, Tag } from 'vant';
 import { jump_to_page } from 'utils/base';
 import { useStore } from 'vuex';
@@ -102,28 +103,37 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(){
+  setup(props){
     const store = useStore();
     const state = reactive({
       refreshing: false, // 是否处于刷新中
       loading: false, // 是否处于加载中
-      finished: true, // 是否已加载完成
+      finished: false, // 是否已加载完成
+    });
+
+    watch(() => props.shops, () => {
+      if(props.shops.length >= 60){
+        // 等于60条的时候置为已经加载完成
+        state.finished = true;
+      }
     });
 
     // 触底加载
     const onLoad = () => {
+      state.loading = true;
       if(state.refreshing){
         // 清除数据
         store.commit('home/updateShops', []);
+        state.refreshing = false;
       }
-      store.dispatch('home/fetchShops');
-      state.loading = false;
-      state.finished = true;
+      store.dispatch('home/fetchShops').then(() => {
+        state.loading = false;
+      });
     };
 
     // 下拉刷新
     const onRefresh = () => {
-      state.loading = true;
+      // 置为未完成加载
       state.finished = false;
       onLoad();
     };
