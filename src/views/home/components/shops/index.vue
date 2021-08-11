@@ -82,7 +82,7 @@
   </section>
 </template>
 <script lang="ts" >
-import { computed, defineComponent, onMounted, reactive, toRefs } from 'vue';
+import { defineComponent, reactive, toRefs } from 'vue';
 import { PullRefresh, List, Icon, Image, Rate, Tag } from 'vant';
 import { jump_to_page } from 'utils/base';
 import { useStore } from 'vuex';
@@ -99,7 +99,7 @@ export default defineComponent({
   },
   props: {
     shops: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },

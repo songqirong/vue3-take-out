@@ -29,7 +29,7 @@
 </template>
 <script lang="ts" >
 import { defineComponent, computed, onMounted } from 'vue';
-import { Button, NoticeBar, NavBar, Icon, Image, Toast } from 'vant';
+import { NavBar, Icon } from 'vant';
 import { useStore } from 'vuex';
 import CateComponent from './components/categories/index.vue';
 import ShopComponent from './components/shops/index.vue';
@@ -37,11 +37,8 @@ import { go_login, jump_to_page } from 'utils/base';
 export default defineComponent({
   name: 'Home',
   components: {
-    [Button.name]: Button,
-    [NoticeBar.name]: NoticeBar,
     [NavBar.name]: NavBar,
     [Icon.name]: Icon,
-    [Image.name]: Image,
     CateComponent,
     ShopComponent,
   },
