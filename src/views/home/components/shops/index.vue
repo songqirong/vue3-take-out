@@ -82,7 +82,7 @@
   </section>
 </template>
 <script lang="ts" >
-import { defineComponent, reactive, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, reactive, toRefs } from 'vue';
 import { PullRefresh, List, Icon, Image, Rate, Tag } from 'vant';
 import { jump_to_page } from 'utils/base';
 import { useStore } from 'vuex';
@@ -99,7 +99,7 @@ export default defineComponent({
   },
   props: {
     shops: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
@@ -111,23 +111,23 @@ export default defineComponent({
       finished: false, // 是否已加载完成
     });
 
-    watch(() => props.shops, () => {
-      if(props.shops.length >= 60){
-        // 等于60条的时候置为已经加载完成
-        state.finished = true;
-      }
-    });
-
     // 触底加载
     const onLoad = () => {
       state.loading = true;
-      if(state.refreshing){
-        // 清除数据
-        store.commit('home/updateShops', []);
-        state.refreshing = false;
-      }
-      store.dispatch('home/fetchShops').then(() => {
+      // if(state.refreshing){
+      //   // 清除数据
+      //   store.commit('home/updateShops', []);
+      //   state.refreshing = false;
+      // }
+      store.dispatch('home/fetchShops', { isOne: state.refreshing }).then(() => {
         state.loading = false;
+        if(state.refreshing){
+          state.refreshing = false;
+        }
+        if(props.shops.length >= 60){
+        // 等于60条的时候置为已经加载完成
+          state.finished = true;
+        }
       });
     };
 

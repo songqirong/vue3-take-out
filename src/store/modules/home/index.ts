@@ -4,7 +4,6 @@ import { Toast } from 'vant';
 export default {
   namespaced: true,
   state: {
-    count: 1,
     categories: [],
     shops: [],
     positionInfo: {
@@ -18,9 +17,6 @@ export default {
 
   },
   mutations: {
-    add(state: any){
-      state.count++;
-    },
     updateCateGories(state, payload){
       const arr: any[][] = [];
       const len = payload.length;
@@ -30,7 +26,7 @@ export default {
       state.categories = arr;
     },
     updateShops(state, payload){
-      state.shops = [ ...state.shops, ...payload ];
+      state.shops = payload;
     },
     updatePositionInfo(state, payload){
       state.positionInfo = payload;
@@ -41,9 +37,9 @@ export default {
       const res = await getAllgories();
       store.commit('updateCateGories', res.data.data);
     },
-    async fetchShops({ commit }, payload){
+    async fetchShops({ commit, state }, payload){
       const res = await getShops();
-      commit('updateShops', res.data.data);
+      commit('updateShops', payload?.isOne ? res.data.data : [...state.shops, ...res.data.data]);
     },
     async fetchPositionInfo({ commit }, payload){
       function getPos(){

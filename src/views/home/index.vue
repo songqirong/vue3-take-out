@@ -9,7 +9,7 @@
     >
       <template #left>
         <van-icon name="location-o" />
-        <span class="van-nav-bar__text">{{ positionInfo?.addressComponent?.city }}</span>
+        <span class="van-nav-bar__text">{{ home.positionInfo?.addressComponent?.city }}</span>
       </template>
       <template #title>
         <div
@@ -23,8 +23,8 @@
         </div>
       </template>
     </van-nav-bar>
-    <cate-component :categories="categories" />
-    <shop-component :shops="shops" />
+    <cate-component :categories="home.categories" />
+    <shop-component :shops="home.shops" />
   </div>
 </template>
 <script lang="ts" >
@@ -47,28 +47,23 @@ export default defineComponent({
   },
   setup(){
     const store = useStore();
-    const categories = computed(() => store.state.home.categories);
-    const shops = computed(() => store.state.home.shops);
     const userInfo = computed(() => store.state.user.userInfo);
-    const positionInfo = computed(() => store.state.home.positionInfo);
+    const home = computed(() => store.state.home);
     const handleClick = () => {
       store.commit('home/add');
     };
     onMounted(() => {
       // 获取坐标并反解析地理位置
       store.dispatch('home/fetchPositionInfo');
-      // vuex里有数据则不需要请求
-      categories.value.length === 0 && store.dispatch('home/fetchAllGories');
-      shops.value.length === 0 && store.dispatch('home/fetchShops');
+      store.dispatch('home/fetchShops');
+      store.dispatch('home/fetchAllGories');
     });
     return {
       handleClick,
       go_login,
       jump_to_page,
-      categories,
-      shops,
+      home,
       userInfo,
-      positionInfo,
     };
 
   },
