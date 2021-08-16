@@ -15,11 +15,11 @@ export default defineConfig({
     ],
   })],
   css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "./public/common.scss";',
-      },
-    },
+    // preprocessorOptions: {
+    //   scss: {
+    //     additionalData: '@import "src/assets/common.scss";',
+    //   },
+    // },
   },
   // 起别名
   resolve: {
