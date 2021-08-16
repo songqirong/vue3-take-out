@@ -180,13 +180,12 @@ export default defineComponent({
     const onSubmit = (values, type: 'pass' | 'code') => {
       if(type === 'code' && !state.agree) return Toast('请先勾选协议后再次提交～');
       Toast.loading('登录中，请稍等～');
-      console.log(state.agree, 'agree');
+      imgRef.value.click();
       fetchLogin({ ...values, type }).then((res) => {
         Toast.success(res.data.message);
         store.commit('user/changeUserInfo', res.data.data);
         clearTimer();
         router.replace('/home');
-
       });
     };
 
