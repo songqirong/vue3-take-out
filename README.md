@@ -35,3 +35,5 @@ pre-commit 启用(这是在commit之前对代码进行风格检测的命令)
 .stylelintrc.json (json、js文件可以写注释)
 .stylelintignore
 请先执行 npm run prelint
+
+## 注 node版本需为14.x以上

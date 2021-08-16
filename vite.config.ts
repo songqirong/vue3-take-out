@@ -14,6 +14,13 @@ export default defineConfig({
       },
     ],
   })],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./public/common.scss";',
+      },
+    },
+  },
   // 起别名
   resolve: {
     alias: [
@@ -32,6 +39,7 @@ export default defineConfig({
   server: {
     host: 'localhost',
     port: 3001,
+    // middlewareMode: 'html',
     // fs: {
     //   // strict: false,
     //   allow: ['..', '.'],
@@ -53,6 +61,7 @@ export default defineConfig({
   },
   // build: {
   //   // target: 'es2015',
+  //   polyfillModulePreload: true,
   //   minify: 'esbuild',
   //   assetsDir: '',
   // },

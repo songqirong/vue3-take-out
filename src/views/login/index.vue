@@ -144,8 +144,9 @@ import { defineComponent, reactive, toRefs, ref } from 'vue';
 import { NavBar, Tabs, Tab, Form, Cell, Field, Button, Switch, Checkbox, Toast } from 'vant';
 import { check_phone } from '@/utils/base';
 import { useStore } from 'vuex';
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 import http from 'api/index';
+let myTimer: any;
 export default defineComponent({
   name: 'Login',
   components: {
@@ -177,27 +178,39 @@ export default defineComponent({
     const { fetchLogin, fetchGetCode } = http;
     // 点击表单提交
     const onSubmit = (values, type: 'pass' | 'code') => {
-      type === 'code' && !state.agree && Toast('请先勾选协议后再次提交～');
+      if(type === 'code' && !state.agree) return Toast('请先勾选协议后再次提交～');
       Toast.loading('登录中，请稍等～');
+      console.log(state.agree, 'agree');
       fetchLogin({ ...values, type }).then((res) => {
         Toast.success(res.data.message);
         store.commit('user/changeUserInfo', res.data.data);
+        clearTimer();
         router.replace('/home');
 
       });
     };
+
+    // 清除定时器,防止内存泄漏
+    const clearTimer = () => {
+      // 登录成功后清空表单
+      beforeChange();
+      if(myTimer){
+        clearInterval(myTimer);
+        state.seconds = 59;
+        state.hasSend = false;
+      }
+    };
+
 
     // 发送验证码
     const sendCode = () => {
       if(!check_phone(state.phone_number)) return;
       state.hasSend = true;
       fetchGetCode({ phone_number: state.phone_number });
-      const myTimer = setInterval(() => {
+      myTimer = setInterval(() => {
         state.seconds--;
         if(state.seconds <= 0){
           clearInterval(myTimer);
-          state.hasSend = false;
-          state.seconds = 59;
         }
       }, 1000);
     };
@@ -207,7 +220,6 @@ export default defineComponent({
       if(state.active === 0){
         state.code = '';
         state.agree = true;
-        imgRef.value.click();
       } else {
         state.captcha = '';
         state.password = '';
@@ -236,8 +248,12 @@ export default defineComponent({
       sendCode,
       validator,
       beforeChange,
+      clearTimer,
       imgRef,
     };
+  },
+  beforeUnmount(){
+    this.clearTimer();
   },
 });
 </script>

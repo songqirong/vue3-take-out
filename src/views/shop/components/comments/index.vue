@@ -7,7 +7,7 @@
         :plain="active != 0"
         @click="changeActive(0)"
       >
-        全部 {{ ratings.length }}
+        全部 {{ ratings.length || 0 }}
       </van-button>
       <van-button
         square
@@ -23,7 +23,7 @@
         :plain="active != 2"
         @click="changeActive(2)"
       >
-        不满意 {{ ratings.length - good }}
+        不满意 {{ ratings.length - good || 0 }}
       </van-button>
     </div>
     <div class="radio">
