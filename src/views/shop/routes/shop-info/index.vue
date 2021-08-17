@@ -46,6 +46,7 @@
         </div>
       </div>
     </div>
+    <div class="seprate" />
     <div class="shop-msg">
       <van-divider>商家信息</van-divider>
       <van-cell-group>
