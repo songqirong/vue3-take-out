@@ -25,7 +25,7 @@
             placeholder="请输入手机号"
             required
             maxlength="11"
-            autocomplete="false"
+            autocomplete="off"
             :rules="[{ validator }]"
           />
           <van-field
@@ -34,6 +34,7 @@
             label="验证码"
             placeholder="请输入短信验证码"
             required
+            autocomplete="off"
             :rules="[{ required: true, message: '请输入短信验证码' }]"
           >
             <template #button>
@@ -87,6 +88,7 @@
             placeholder="请输入手机号"
             required
             maxlength="11"
+            autocomplete="off"
             :rules="[{ validator }]"
           />
           <van-field
@@ -96,6 +98,7 @@
             label="密码"
             placeholder="请输入密码"
             required
+            autocomplete="off"
             :rules="[{ required: true, message: '请输入密码' }]"
           >
             <template #button>
@@ -110,6 +113,7 @@
             label="验证码"
             name="captcha"
             required
+            autocomplete="off"
             maxlength="4"
             placeholder="请输入验证码"
             :rules="[{ required: true, message: '请输入验证码' }]"
