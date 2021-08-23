@@ -4,6 +4,7 @@ import router from './routes';
 import store from './store';
 import http from 'api/index';
 import { Lazyload } from 'vant';
+import 'utils/rem';
 import 'src/mock/server.js';
 const app = createApp(App);
 app.config.globalProperties.$http = http;
